@@ -4,6 +4,7 @@ import { useState } from "react"
 import EmployeeForm from "../../../components/employee/EmployeeForm"
 import EmployeeTable from "../../../components/employee/EmployeeTable"
 
+export const dynamic = "force-dynamic"
 export default function Page() {
   const [selected, setSelected] = useState(null)
 
