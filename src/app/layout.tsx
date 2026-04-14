@@ -1,15 +1,12 @@
-import "./globals.css"
-import { ThemeProvider } from "@/components/providers/ThemeProvider"
+import ReactQueryProvider from "@/components/providers/ReactQueryProvider"
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ReactQueryProvider>
+          {children}
+        </ReactQueryProvider>
       </body>
     </html>
   )
