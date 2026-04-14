@@ -130,3 +130,16 @@
     @apply font-sans;
     }
 }
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+}
+* {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
