@@ -16,7 +16,9 @@ model Employee {
 }
 
 model User {
-  id    String @id @default(uuid())
-  email String @unique
-  password String
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  role      String   @default("USER")
+  createdAt DateTime @default(now())
 }

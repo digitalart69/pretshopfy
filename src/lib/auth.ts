@@ -1,22 +1,12 @@
 import { cookies } from "next/headers"
-import { jwtVerify } from "jose"
+import jwt from "jsonwebtoken"
 
 export async function getUser() {
+  const token = cookies().get("token")?.value
+  if (!token) return null
+
   try {
-    const cookieStore = cookies()
-    const token = cookieStore.get("token")?.value
-
-    if (!token) return null
-
-    const { payload } = await jwtVerify(
-      token,
-      new TextEncoder().encode(process.env.JWT_SECRET)
-    )
-
-    return payload as {
-      id: string
-      role: string
-    }
+    return jwt.verify(token, process.env.JWT_SECRET!) as any
   } catch {
     return null
   }
